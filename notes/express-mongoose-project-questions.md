@@ -85,15 +85,23 @@ app.listen(4269, () => {
 
 What are some terms for the starting `/` route?
 
+- index route, root URL, base route, index landing
+
 ### Templates and Views
 
 What express method allows us to dictate what view engine we'll be using? What does that code look like if we're using `ejs`?
 
 ```js
-// code here
+app.set("view engine", "ejs");
 ```
 
 What is a view?
+
+- A template that corresponds to a certain route
+
+How should we organize our app's views when using Express?
+
+- By making a views folder in the project root.
 
 What is a partial?
 
@@ -109,11 +117,33 @@ Let's say a music app has three index routes,
 
 What is best practice when it comes to defining and organizing these routes in your music app?
 
+- Create a `routes` folder in the project root.
+
+How do we create a new router instance?
+
+```js
+const talentsRouter = express.Router();
+```
+
+How do export this router instance for use in other files?
+
+```js
+module.exports = talentsRouter;
+```
+
+How do we import this router in another file?
+
+```js
+const talentsRouter = require("./routes/talentsRouter");
+```
+
 What express method allows you to define which routers should handle their corresponding routes? Give an example.
 
 ```js
-// code here
+app.use("/talents", talentsRouter);
 ```
+
+How do we tell Express to use this new router for a certain route landing, e.g. `/talents`?
 
 ## Javascript extras
 
