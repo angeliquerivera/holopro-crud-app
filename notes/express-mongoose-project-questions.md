@@ -25,19 +25,39 @@ What command starts a new Git repo?
 git init
 ```
 
+What file do we need to create so git ignores certain files and folders?
+
+- .gitignore
+
+What do we need to add to `.gitignore` so that the `node_modules/` folder is NOT added when you stage new files to commit?
+
+```
+node_modules/
+```
+
 What command will install our regular dependencies?
 
 ```shell
-# code here
+npm i express mongoose ejs
 ```
 
 What command will install our dev dependencies?
 
 ```shell
-# code here
+npm i nodemon --save-dev
 ```
 
+What's a good name for a server base file for Express? Where does this file go in the project?
+
+- server.js
+
 What script can we write in order to monitor our project as changes are saved? What's a good name for that script?
+
+```
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+```
 
 ## Express
 
@@ -46,19 +66,21 @@ What script can we write in order to monitor our project as changes are saved? W
 How can we use the `express` library we installed in our repo?
 
 ```js
-// code here
+const express = require("express");
 ```
 
 How do we create a new instance of an Express server?
 
 ```js
-// code here
+const app = express();
 ```
 
-What express method allows us to view the connection to the process? Give an example of this method in action.
+What express method allows us to view the connection to the server? Give an example of this method in action.
 
 ```js
-// code here
+app.listen(4269, () => {
+  console.log("¡Yo, the server's running on port 4269!");
+});
 ```
 
 What are some terms for the starting `/` route?
