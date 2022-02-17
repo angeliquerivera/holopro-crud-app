@@ -1,6 +1,9 @@
 const express = require("express");
 const talentsRouter = require("./routes/talentsRouter");
 
+// Test talent data import
+const talents = require("./__test__/test_talents");
+
 const app = express();
 
 /**
@@ -17,7 +20,7 @@ app.use("/talents", talentsRouter);
  * Server index route
  */
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { talents });
 });
 
 /**
