@@ -20,7 +20,7 @@ app.use("/talents", talentsRouter);
  * Server index route
  */
 app.get("/", (req, res) => {
-  res.render("index", { talents });
+  res.render("talents/index", { talents });
 });
 
 /**

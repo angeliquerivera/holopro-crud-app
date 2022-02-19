@@ -17,23 +17,8 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="mb-4">Welcome to the Holo Talent Server!</h1>
-      <a href="/talents/new" class="btn btn-success"> New Talent </a>
-
-      <% talents.forEach(talent => { %>
-      <div class="card mt-4">
-        <div class="card-body">
-          <div class="card-title"><%= talent.name %></div>
-          <div class="card-subtitle text-muted mb-2">
-            <%= talent.debutDate.toLocaleDateString() %>
-          </div> 
-          <div class="card-text mb-2">
-            <%= talent.tagline %>
-          </div>
-          </div>
-        </div>
-        <% }) %>
-      </div>
+      <h1 class="display-1">Add a new talent</h1>
+      <form action="/talents" method="POST"></form>
     </div>
   </body>
 </html>
