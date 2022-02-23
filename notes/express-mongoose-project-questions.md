@@ -208,3 +208,53 @@ What is the `button` layout element? How do we use this element in our template?
 What is the `form` layout element?
 
 What do Bootstrap's form controls allow us to do with form elements?
+
+## Partials
+
+- Partials are components that allow you to use the same HTML across multiple views
+- Partials help keep us DRY (Don't Repeat Yourself)
+- File names begin with underscores
+- In EJS syntax, we can render out the HTML of a partial view like so: `<%- include("./relative/filePath/here") %>`
+
+## Holopro Talent Fields
+
+### Required fields
+
+- Name
+- Debut date
+- Unit name
+- Youtube page link
+- Twitter page link
+- Talent bio blurb
+
+### Expected field value and input type
+
+#### Name
+
+- String value
+- Text `<input>`
+
+#### Debut date
+
+- Date value
+- three number `<input>`
+
+#### Unit Name
+
+- String value
+- `<select>` element with `<option>`
+
+#### Youtube link
+
+- String value
+- URL `<input>`
+
+#### Twitter link
+
+- String value
+- URL `<input>`
+
+#### Talent bio blurb
+
+- String value
+- `<textarea>`

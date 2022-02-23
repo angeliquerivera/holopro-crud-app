@@ -17,8 +17,10 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="display-1">Add a new talent</h1>
-      <form action="/talents" method="POST"></form>
+      <h1 class="display-2">Add a new talent</h1>
+      <form action="/talents" method="POST">
+        <%- include("_form_fields") %>
+      </form>
     </div>
   </body>
 </html>
