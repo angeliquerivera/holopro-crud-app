@@ -1,4 +1,7 @@
 const express = require("express");
+const mongoose = require("mongoose");
+
+// Local imports come after node_modules imports
 const talentsRouter = require("./routes/talentsRouter");
 
 // Test talent data import
@@ -28,4 +31,12 @@ app.get("/", (req, res) => {
  */
 app.listen(4269, () => {
   console.log("¡Yo, the server's running on port 4269!");
+});
+
+mongoose.connect("mongodb://localhost/holoproTalents", () => {
+  console.log("Connected to holoproTalents DB!"),
+    (err) => {
+      console.error("holoproTalents DB error:");
+      console.error(err);
+    };
 });
