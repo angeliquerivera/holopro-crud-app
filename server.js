@@ -13,6 +13,7 @@ const app = express();
  * Server settings
  */
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: false }));
 
 /**
  * Router route assignments

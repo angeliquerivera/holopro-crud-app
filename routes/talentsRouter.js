@@ -1,4 +1,6 @@
 const express = require("express");
+const Talent = require("../models/Talent");
+
 const talentsRouter = express.Router();
 
 /**
@@ -7,12 +9,50 @@ const talentsRouter = express.Router();
 
 // /talents
 talentsRouter.get("/", (req, res) => {
-  res.send("On talents' index page.");
+  const year = "2022";
+  const month = "12";
+  const day = "25";
+
+  // "2022-12-25"
+  res.send(new Date(`${year}-${month}-${day}`));
+});
+
+// https://www.youtube.com/channel/UCAWSyEs_Io8MtpY3m-zqILA
+// https://twitter.com/momosuzunene
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
+talentsRouter.post("/", async (req, res) => {
+  const { name, month, day, year, unitName, youtube, twitter, bioBlurb } =
+    req.body;
+
+  // Method 1: Converting Strings to Numbers, passing each as integer inputs
+  // const debut = new  Date(Number(year), Number(month) - 1, Number(day));
+
+  // Method 2: Interpolating the String values into a datestring
+  const debutDate = new Date(`${year}-${month}-${day}`);
+
+  try {
+    const newTalent = await Talent.create({
+      name,
+      debutDate,
+      unitName,
+      youtube,
+      twitter,
+      bioBlurb,
+    });
+    res.redirect(`talents/${newTalent.id}`);
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 // /talents/new
 talentsRouter.get("/new", (req, res) => {
   res.render("talents/new");
+});
+
+talentsRouter.get("/:id", (req, res) => {
+  res.send(`Current talent id is ${req.params.id}`);
 });
 
 module.exports = talentsRouter;

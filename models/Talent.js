@@ -11,13 +11,16 @@ const mongoose = require("mongoose");
  * bioBlurb: String (required)
  */
 
-const talentSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  debutDate: { type: Date, required: true },
-  unitName: { type: String, required: true },
-  youtube: { type: String, required: true },
-  twitter: { type: String, required: true },
-  bio: { type: String, required: true },
-});
+const talentSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    debutDate: { type: Date, required: true },
+    unitName: { type: String, required: true },
+    youtube: { type: String, required: true },
+    twitter: { type: String, required: true },
+    bioBlurb: { type: String, required: true },
+  },
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("Talent", talentSchema);
