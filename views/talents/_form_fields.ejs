@@ -1,21 +1,45 @@
 <div class="form-group">
   <label for="name" class="form-label"> Talent Name </label>
-  <input type="text" name="name" id="name" class="form-control" />
+  <input
+    type="text"
+    name="name"
+    id="name"
+    class="form-control"
+    value="<%= talent.name %>"
+  />
 </div>
 
 <div class="form-group">
   <label for="month" class="form-label"> Debut month </label>
-  <input type="number" name="month" id="month" class="form-control" />
+  <input
+    type="number"
+    name="month"
+    id="month"
+    class="form-control"
+    value="<%= talent.month %>"
+  />
 </div>
 
 <div class="form-group">
   <label for="day" class="form-label"> Debut day </label>
-  <input type="number" name="day" id="day" class="form-control" />
+  <input
+    type="number"
+    name="day"
+    id="day"
+    class="form-control"
+    value="<%= talent.day %>"
+  />
 </div>
 
 <div class="form-group">
   <label for="year" class="form-label"> Debut year </label>
-  <input type="number" name="year" id="year" class="form-control" />
+  <input
+    type="number"
+    name="year"
+    id="year"
+    class="form-control"
+    value="<%= talent.year %>"
+  />
 </div>
 
 <div class="form-group">
@@ -27,17 +51,31 @@
 
 <div class="form-group">
   <label for="youtube" class="form-label"> Talent Youtube Page </label>
-  <input type="url" name="youtube" id="youtube" class="form-control" />
+  <input
+    type="url"
+    name="youtube"
+    id="youtube"
+    class="form-control"
+    value="<%= talent.youtube %>"
+  />
 </div>
 
 <div class="form-group">
   <label for="twitter" class="form-label"> Talent Twitter Page </label>
-  <input type="url" name="twitter" id="twitter" class="form-control" />
+  <input
+    type="url"
+    name="twitter"
+    id="twitter"
+    class="form-control"
+    value="<%= talent.twitter %>"
+  />
 </div>
 
 <div class="form-group">
   <label for="bioBlurb" class="form-label"> Talent Bio </label>
-  <textarea name="bioBlurb" id="bioBlurb" class="form-control"></textarea>
+  <textarea name="bioBlurb" id="bioBlurb" class="form-control">
+    <%= talent.bioBlurb %>
+  </textarea>
 </div>
 
 <div class="form-group">

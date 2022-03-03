@@ -8,13 +8,9 @@ const talentsRouter = express.Router();
  */
 
 // /talents
-talentsRouter.get("/", (req, res) => {
-  const year = "2022";
-  const month = "12";
-  const day = "25";
-
-  // "2022-12-25"
-  res.send(new Date(`${year}-${month}-${day}`));
+talentsRouter.get("/", async (req, res) => {
+  const someTalent = await Talent.findOne();
+  res.send(someTalent);
 });
 
 // https://www.youtube.com/channel/UCAWSyEs_Io8MtpY3m-zqILA
@@ -26,7 +22,7 @@ talentsRouter.post("/", async (req, res) => {
     req.body;
 
   // Method 1: Converting Strings to Numbers, passing each as integer inputs
-  // const debut = new  Date(Number(year), Number(month) - 1, Number(day));
+  // const debut = new Date(Number(year), Number(month) - 1, Number(day));
 
   // Method 2: Interpolating the String values into a datestring
   const debutDate = new Date(`${year}-${month}-${day}`);
@@ -42,15 +38,20 @@ talentsRouter.post("/", async (req, res) => {
     });
     res.redirect(`talents/${newTalent.id}`);
   } catch (error) {
+    console.error("There has been an error in trying to create a new talent.");
     console.error(error);
+    res.render("talents/new", { talent: req.body });
   }
 });
 
 // /talents/new
 talentsRouter.get("/new", (req, res) => {
-  res.render("talents/new");
+  res.render("talents/new", { talent: new Talent() });
 });
 
+// /talents/:id
+
+// sample Talent id: 6219684211690313d16cc8ec
 talentsRouter.get("/:id", (req, res) => {
   res.send(`Current talent id is ${req.params.id}`);
 });
