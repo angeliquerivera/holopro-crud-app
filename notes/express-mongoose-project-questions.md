@@ -214,7 +214,7 @@ What do Bootstrap's form controls allow us to do with form elements?
 - Partials are components that allow you to use the same HTML across multiple views
 - Partials help keep us DRY (Don't Repeat Yourself)
 - File names begin with underscores
-- In EJS syntax, we can render out the HTML of a partial view like so: `requ`
+- In EJS syntax, we can render out the HTML of a partial view like so: `req`
 
 ## Holopro Talent Fields
 

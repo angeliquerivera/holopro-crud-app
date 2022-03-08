@@ -1,0 +1,31 @@
+[
+  {
+    "branch": "hololive JP",
+    "units": [
+      "Gen 0",
+      "1st Gen",
+      "2nd Gen",
+      "hololive GAMERS",
+      "3rd Gen -Fantasy-",
+      "4th Gen -holoForce-",
+      "5th Gen -NePoLaBo-",
+      "6th Gen -Secret Society holoX-"
+    ]
+  },
+  {
+    "branch": "hololive ID",
+    "units": ["ID 1st Gen -Area 15-", "ID 2nd Gen -holoro-"]
+  },
+  {
+    "branch": "hololive EN",
+    "units": ["EN 1st Gen -Myth-", "EN 2nd Gen -Council-"]
+  },
+  {
+    "branch": "hololive Stars",
+    "units": [
+      "Stars 1st Gen",
+      "Stars 2nd Gen -SunTempo-",
+      "Stars 3rd Gen -TriNero-"
+    ]
+  }
+]

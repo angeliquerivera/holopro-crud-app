@@ -1,5 +1,6 @@
 const express = require("express");
 const Talent = require("../models/Talent");
+const holoUnits = require("../data/holopro_units.json");
 
 const talentsRouter = express.Router();
 
@@ -40,13 +41,15 @@ talentsRouter.post("/", async (req, res) => {
   } catch (error) {
     console.error("There has been an error in trying to create a new talent.");
     console.error(error);
-    res.render("talents/new", { talent: req.body });
+    res.render("talents/new", { talent: req.body, holoUnits });
   }
 });
 
+// https://excalidraw.com/#room=da5deb14eb8e323f7924,AP9IZoRBcK5KqLPeTBM2lQ
+
 // /talents/new
 talentsRouter.get("/new", (req, res) => {
-  res.render("talents/new", { talent: new Talent() });
+  res.render("talents/new", { talent: new Talent(), holoUnits });
 });
 
 // /talents/:id

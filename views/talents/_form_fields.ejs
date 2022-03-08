@@ -1,6 +1,7 @@
 <div class="form-group">
   <label for="name" class="form-label"> Talent Name </label>
   <input
+    required
     type="text"
     name="name"
     id="name"
@@ -12,7 +13,10 @@
 <div class="form-group">
   <label for="month" class="form-label"> Debut month </label>
   <input
+    required
     type="number"
+    min="1"
+    max="12"
     name="month"
     id="month"
     class="form-control"
@@ -23,7 +27,10 @@
 <div class="form-group">
   <label for="day" class="form-label"> Debut day </label>
   <input
+    required
     type="number"
+    min="1"
+    max="31"
     name="day"
     id="day"
     class="form-control"
@@ -34,7 +41,10 @@
 <div class="form-group">
   <label for="year" class="form-label"> Debut year </label>
   <input
+    required
     type="number"
+    min="2017"
+    max="2037"
     name="year"
     id="year"
     class="form-control"
@@ -45,16 +55,28 @@
 <div class="form-group">
   <label for="unitName" class="form-label"> Talent's Unit </label>
   <select name="unitName" id="unitName" class="form-select">
-    <option value="5th Gen - NePoLaBo">5th Gen - NePoLaBo</option>
+    <% holoUnits.forEach(({branch, units}) => { %>
+    <optgroup label="<%= branch %>">
+      <% units.forEach(holoUnit => { %>
+        <option 
+          value="<% holoUnit %>"
+          <%= holoUnit ===  talent.unitName ? "selected" : "" %>
+        >
+          <%= holoUnit%>
+        </option>
+      <% }) %> 
+    </optgroup>
+    <% }) %>
   </select>
 </div>
 
 <div class="form-group">
   <label for="youtube" class="form-label"> Talent Youtube Page </label>
   <input
+    required
     type="url"
-    name="youtube"
     id="youtube"
+    name="youtube"
     class="form-control"
     value="<%= talent.youtube %>"
   />
@@ -63,6 +85,7 @@
 <div class="form-group">
   <label for="twitter" class="form-label"> Talent Twitter Page </label>
   <input
+    required
     type="url"
     name="twitter"
     id="twitter"
@@ -73,7 +96,7 @@
 
 <div class="form-group">
   <label for="bioBlurb" class="form-label"> Talent Bio </label>
-  <textarea name="bioBlurb" id="bioBlurb" class="form-control">
+  <textarea required name="bioBlurb" id="bioBlurb" class="form-control">
     <%= talent.bioBlurb %>
   </textarea>
 </div>
