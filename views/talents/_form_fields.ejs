@@ -53,19 +53,19 @@
 </div>
 
 <div class="form-group">
-  <label for="unitName" class="form-label"> Talent's Unit </label>
+  <label for="unitName" class="form-label">Talent's Unit</label>
   <select name="unitName" id="unitName" class="form-select">
-    <% holoUnits.forEach(({branch, units}) => { %>
-    <optgroup label="<%= branch %>">
-      <% units.forEach(holoUnit => { %>
-        <option 
-          value="<% holoUnit %>"
-          <%= holoUnit ===  talent.unitName ? "selected" : "" %>
-        >
-          <%= holoUnit%>
-        </option>
-      <% }) %> 
-    </optgroup>
+    <% holoUnits.forEach(({ branch, units }) => { %>
+      <optgroup label="<%= branch %>">
+        <% units.forEach((unit) => { %>
+          <option 
+          value="<%= unit %>"
+          <%= unit === talent.unitName ? "selected" : "" %>
+          >
+            <%= unit %> 
+          </option>
+      <%  }) %>
+      </optgroup>
     <% }) %>
   </select>
 </div>

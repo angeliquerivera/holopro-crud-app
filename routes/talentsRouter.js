@@ -54,9 +54,24 @@ talentsRouter.get("/new", (req, res) => {
 
 // /talents/:id
 
-// sample Talent id: 6219684211690313d16cc8ec
-talentsRouter.get("/:id", (req, res) => {
-  res.send(`Current talent id is ${req.params.id}`);
+// 1. prep the route for DB interaction
+// 2. fetch the Talent
+// 3. Redirect when no Talent found
+// 4. Render the single Talent if found
+// 5. Create the single Talent template
+talentsRouter.get("/:id", async (req, res) => {
+  try {
+    const talent = await Talent.findById(req.params.id);
+    if (talent === null) {
+      res.redirect("/");
+    }
+    res.render("talents/show", { talent });
+  } catch (error) {
+    console.error(error);
+    res.redirect("/");
+  }
 });
+
+//localhost:4269/talents/6219684211690313d16cc8ec
 
 module.exports = talentsRouter;
