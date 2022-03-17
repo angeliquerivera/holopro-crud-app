@@ -20,19 +20,23 @@
       <h1 class="mb-4">Welcome to the Holo Talent Server!</h1>
       <a href="/talents/new" class="btn btn-success"> New Talent </a>
 
-      <% talents.forEach(talent => { %>
-      <div class="card mt-4">
-        <div class="card-body">
-          <h2 class="card-title h2 mb-3"><%= talent.name %></h2>
-          <div class="card-subtitle text-muted mb-2">
-            <%= talent.debutDate.toLocaleDateString() %>
-          </div> 
-          <div class="card-text mb-2">
-            <%= talent.tagline %>
-          </div>
+      <div class="row">
+        <% talents.forEach(talent => { %>
+        <div class="col-4">
+          <div class="card mt-4">
+            <div class="card-body">
+              <h5 class="card-title mb-3"><%= talent.name %></h5>
+              <div class="card-subtitle text-muted mb-2">
+                <%= talent.unitName %>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="/talents/<%= talent.slug %>" class="card-link"> View Talent</a>
+            </div>
           </div>
         </div>
-        <% }) %>
+          <% }) %>
+      </div>
       </div>
     </div>
   </body>

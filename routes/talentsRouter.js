@@ -37,7 +37,7 @@ talentsRouter.post("/", async (req, res) => {
       twitter,
       bioBlurb,
     });
-    res.redirect(`talents/${newTalent.id}`);
+    res.redirect(`talents/${newTalent.slug}`);
   } catch (error) {
     console.error("There has been an error in trying to create a new talent.");
     console.error(error);
@@ -59,9 +59,9 @@ talentsRouter.get("/new", (req, res) => {
 // 3. Redirect when no Talent found
 // 4. Render the single Talent if found
 // 5. Create the single Talent template
-talentsRouter.get("/:id", async (req, res) => {
+talentsRouter.get("/:slug", async (req, res) => {
   try {
-    const talent = await Talent.findById(req.params.id);
+    const talent = await Talent.findOne({ slug: req.params.slug });
     if (talent === null) {
       res.redirect("/");
     }

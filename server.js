@@ -1,11 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Talent = require("./models/Talent");
 
 // Local imports come after node_modules imports
 const talentsRouter = require("./routes/talentsRouter");
-
-// Test talent data import
-const talents = require("./__test__/test_talents");
 
 const app = express();
 
@@ -23,8 +21,13 @@ app.use("/talents", talentsRouter);
 /**
  * Server index route
  */
-app.get("/", (req, res) => {
-  res.render("talents/index", { talents });
+app.get("/", async (req, res) => {
+  try {
+    const talents = await Talent.find().sort({ debutDate: "asc" });
+    res.render("talents/index", { talents });
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 /**

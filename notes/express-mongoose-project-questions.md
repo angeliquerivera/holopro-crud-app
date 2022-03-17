@@ -258,3 +258,10 @@ What do Bootstrap's form controls allow us to do with form elements?
 
 - String value
 - `<textarea>`
+
+## URL Slugs
+
+### What is a slug?
+
+- A URL slug is the part of the URL after the final backslash.
+- A good URL slug also helps the Google crawlbots understand how to get to your page and confirms the content on it.
