@@ -270,3 +270,24 @@ What do Bootstrap's form controls allow us to do with form elements?
 
 - `<a>` tags can only `GET`
 - `<form>` tags can only `GET` or `POST`
+
+## Google crawling and link protection
+
+### Crawlbot behavior
+
+- Since Google crawls over every single link in our page and enters those links to access the pages, it would be a TERRIBLE idea to place a button in each talent card that would lead to a deletion on click. Every talent would be deleted by the crawlbot on click.
+- Instead, we place the delete button inside of a nested form.
+
+## What is HTML sanitization?
+
+- When you sanitize HTML, it's the process of examining an HTML document that preserves only whatever tags are designated safe and desired.
+- HTML sanitization can be used to protect against attacks such as cross-site scripting (XSS attacks) by sanitizing any HTML code submitted by a user.
+- Basic tags for changing fonts are often allowed, while more advanced tags such as `<script>`, `<object>`, `<embed>`, and `<link>` are removed.
+- Potentially dangerous attributes such as the `onClick` attributes are removed in order to prevent malicious code from being injected.
+
+## What is the DOM?
+
+- DOM = Document Object Model
+- DOM is the data representation of the objects that comprise the structure and content of a document on the web.
+- It is a programming interface for web documents
+- The DOM represents documents as nodes and objects. That way, programming languages can interact with the pages.

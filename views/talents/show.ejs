@@ -21,7 +21,7 @@
         <%= talent.unitName %>, debuted <%=
         talent.debutDate.toLocaleDateString()%>
       </p>
-      <div class="mb-4"><%= talent.bioBlurb %></div>
+      <div class="mb-4"><%- talent.sanitizedHTML %></div>
       <h5>Social Media</h5>
       <div class="row mb-4">
         <div class="col">

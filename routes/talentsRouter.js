@@ -1,8 +1,8 @@
-const express = require("express");
+const { Router } = require("express");
 const Talent = require("../models/Talent");
 const holoUnits = require("../data/holopro_units.json");
 
-const talentsRouter = express.Router();
+const talentsRouter = Router();
 
 /**
  * Handles all /talents routes
@@ -72,6 +72,16 @@ talentsRouter.get("/:slug", async (req, res) => {
   }
 });
 
-//localhost:4269/talents/6219684211690313d16cc8ec
+/**
+ * DELETE /talents/:id
+ * - Grab id from route
+ * - Use id to find talent documents in DB
+ * - Delete that document
+ * - Redirect to index page
+ */
+talentsRouter.delete("/:id", async (req, res) => {
+  await Talent.findByIdAndDelete(req.params.id);
+  res.redirect("/");
+});
 
 module.exports = talentsRouter;

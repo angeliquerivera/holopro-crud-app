@@ -30,8 +30,20 @@
                 <%= talent.unitName %>
               </div>
             </div>
+
             <div class="card-footer">
-              <a href="/talents/<%= talent.slug %>" class="card-link"> View Talent</a>
+              <button class="btn btn-info btn-sm">
+                <a href="/talents/<%= talent.slug %>" class="text-reset text-decoration-none">
+                  View Talent
+                </a>
+              </button>
+              <form 
+              action="/talents/<%= talent.id %>?_method=DELETE" method="POST" class="d-inline"
+              >
+                <button class="btn btn-danger btn-sm" type="submit">
+                  Delete Talent
+                </button>
+              </form>
             </div>
           </div>
         </div>
