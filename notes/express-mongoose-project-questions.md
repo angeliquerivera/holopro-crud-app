@@ -265,3 +265,8 @@ What do Bootstrap's form controls allow us to do with form elements?
 
 - A URL slug is the part of the URL after the final backslash.
 - A good URL slug also helps the Google crawlbots understand how to get to your page and confirms the content on it.
+
+## HTTP Methods via HTML
+
+- `<a>` tags can only `GET`
+- `<form>` tags can only `GET` or `POST`
