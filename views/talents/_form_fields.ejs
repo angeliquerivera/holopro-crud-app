@@ -10,47 +10,50 @@
   />
 </div>
 
-<div class="form-group">
-  <label for="month" class="form-label"> Debut month </label>
-  <input
-    required
-    type="number"
-    min="1"
-    max="12"
-    name="month"
-    id="month"
-    class="form-control"
-    value="<%= talent.month %>"
-  />
+<div class="row">
+  <div class="form-group col">
+    <label for="month" class="form-label"> Debut month </label>
+    <input
+      required
+      type="number"
+      min="1"
+      max="12"
+      name="month"
+      id="month"
+      class="form-control"
+      value="<%= talent.month %>"
+    />
+  </div>
+  <div class="form-group col">
+    <label for="day" class="form-label"> Debut day </label>
+    <input
+      required
+      type="number"
+      min="1"
+      max="31"
+      name="day"
+      id="day"
+      class="form-control"
+      value="<%= talent.day %>"
+    />
+  </div>
+  <div class="form-group col">
+    <label for="year" class="form-label"> Debut year </label>
+    <input
+      required
+      type="number"
+      min="2017"
+      max="2037"
+      name="year"
+      id="year"
+      class="form-control"
+      value="<%= talent.year %>"
+    />
+  </div>
 </div>
+  
 
-<div class="form-group">
-  <label for="day" class="form-label"> Debut day </label>
-  <input
-    required
-    type="number"
-    min="1"
-    max="31"
-    name="day"
-    id="day"
-    class="form-control"
-    value="<%= talent.day %>"
-  />
-</div>
 
-<div class="form-group">
-  <label for="year" class="form-label"> Debut year </label>
-  <input
-    required
-    type="number"
-    min="2017"
-    max="2037"
-    name="year"
-    id="year"
-    class="form-control"
-    value="<%= talent.year %>"
-  />
-</div>
 
 <div class="form-group">
   <label for="unitName" class="form-label">Talent's Unit</label>
@@ -96,9 +99,7 @@
 
 <div class="form-group">
   <label for="bioBlurb" class="form-label"> Talent Bio </label>
-  <textarea required name="bioBlurb" id="bioBlurb" class="form-control">
-    <%= talent.bioBlurb %>
-  </textarea>
+  <textarea required name="bioBlurb" id="bioBlurb" class="form-control" rows="10"><%= talent.bioBlurb %></textarea>
 </div>
 
 <div class="form-group">

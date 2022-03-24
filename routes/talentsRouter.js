@@ -14,10 +14,11 @@ talentsRouter.get("/", async (req, res) => {
   res.send(someTalent);
 });
 
-// https://www.youtube.com/channel/UCAWSyEs_Io8MtpY3m-zqILA
-// https://twitter.com/momosuzunene
-
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
+/**
+ * POST /talents
+ * - create a `talent` key on incoming `req`
+ * - assign a new, BLANK `Talent` instance to `req.talent`
+ */
 talentsRouter.post(
   "/",
   async (req, res, next) => {
@@ -27,9 +28,10 @@ talentsRouter.post(
   saveTalentAndRedirect("new")
 );
 
-// https://excalidraw.com/#room=da5deb14eb8e323f7924,AP9IZoRBcK5KqLPeTBM2lQ
-
-// /talents/new
+/**
+ * GET /talents/new
+ * - Render 'new' page template using `talent` and `holoUnits` data
+ */
 talentsRouter.get("/new", (req, res) => {
   res.render("talents/new", { talent: new Talent(), holoUnits });
 });
@@ -98,8 +100,6 @@ talentsRouter.get("/edit/:id", async (req, res) => {
     bioBlurb,
   };
 
-  console.log(recreatedTalent.id);
-
   res.render("talents/edit", {
     talent: recreatedTalent,
     holoUnits,
@@ -107,8 +107,11 @@ talentsRouter.get("/edit/:id", async (req, res) => {
 });
 
 /**
- * Based on FORM action URL: "/talents/<%= talent.id %>?_method=PUT"
- * `talent.id` comes from extracted `req.params.id`
+ * PUT "/:id"
+ * - Created key `talent` on request body
+ * - Assigned `req.talent` the value of the document found on `Talent`, using the id from this PUT route as a search parameter
+ * - Based on FORM action URL: `"/talents/<%= talent.id %>?_method=PUT"`
+ * - `talent.id` comes from extracted `req.params.id`
  */
 talentsRouter.put(
   "/:id",
@@ -125,13 +128,12 @@ talentsRouter.put(
  * - save it to the DB
  * - use the try/catch to determine next step
  */
-
 function saveTalentAndRedirect(path) {
   return async (req, res) => {
     try {
       const talent = assignTalentValues(req.talent, req.body);
       await talent.save();
-      res.redirect(`talents/${talent.slug}`);
+      res.redirect(`/talents/${talent.slug}`);
     } catch (error) {
       console.error(
         "There has been an error in trying to create a new talent."
@@ -143,9 +145,19 @@ function saveTalentAndRedirect(path) {
 }
 
 /**
+ * POST "/":
+ * - `oldTalent` = `req.talent` => new, blank `Talent` instance
+ * - `newTalentVals` = `req.body` => brand new `Talent` data submission
+ * - Result: brand new `Talent`
+ *
+ * PUT "/:id":
+ * - `oldTalent` = `req.talent` => existing `Talent` document with `talent.id === req.params.id`
+ * - `newTalentVals` = `req.body` => updated `Talent` data submission
+ * - Result: updated `Talent`
+ *
  * @function assignTalentValues
  * @param {Object} oldTalent - the old Talent document instance
- * @param {Object} newTalentVals - the new values coming from the req.body submission to overwrite the oldTalent
+ * @param {Object} newTalentVals - the new values coming from the `req.body` submission to overwrite the `oldTalent`
  * @return {Object} the updated Talent document instance (unsaved)
  */
 function assignTalentValues(oldTalent, newTalentVals) {
@@ -163,4 +175,5 @@ function assignTalentValues(oldTalent, newTalentVals) {
 
   return oldTalent;
 }
+
 module.exports = talentsRouter;
